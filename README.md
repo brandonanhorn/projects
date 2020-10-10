@@ -1,4 +1,4 @@
 # Full length python projects
 
-Types of projects: Machine Learning, NLP, Deep Learning, Recommenders
+Types of projects: Predictors, Classifiers, NLP, Deep Learning, Recommenders
   
