@@ -1,0 +1,20 @@
+{"data": [{
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Good day!", "Hola", "Hello?", "Whats up?", "Is anyone there"],
+      "responses": ["Hello!", "Hi there", "Good day my friend!", "Whats up?", "Salutations"],
+      "context_set": ""
+    },
+    {
+      "tag": "bye",
+      "patterns": ["Bye", "Cya", "Goodbye", "Later", "I'm leaving", "Im out"],
+      "responses": ["Goodbye", "Cya later!", "Safe travels out there", "Take care"],
+      "context_set": ""
+    },
+    {
+      "tag": "creation",
+      "patterns": ["Who created you?", "What am I talking to?", "Are you real?", "What is this?", "What are you?"],
+      "responses": ["I am computer intelligence. I was created using Natural Language Processing and Deep Learning"],
+      "context_set": ""
+    }
+  ]
+}
