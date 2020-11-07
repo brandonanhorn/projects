@@ -24,7 +24,7 @@ for dat in data["data"]:
 
         w = nltk.word_tokenize(pattern)
         words.extend(w)
-        documents.append((w, dat['tag']))
+        docs.append((w, dat['tag']))
 
         if dat['tag'] not in classes:
             classes.append(dat['tag'])
@@ -40,7 +40,7 @@ pickle.dump(classes,open('classes.pkl','wb'))
 # initializing training data
 training = []
 output_empty = [0] * len(classes)
-for doc in documents:
+for doc in docs:
     bag = []
     pattern_words = doc[0]
     pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
