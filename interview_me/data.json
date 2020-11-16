@@ -1,0 +1,50 @@
+{"data": [{
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Good day!", "Hola", "Hello?", "Whats up?", "Is anyone there"],
+      "responses": ["Hello!", "Hi there", "Good day my friend!"],
+      "context_set": ""
+    },
+    {
+      "tag": "bye",
+      "patterns": ["Bye", "Cya", "Goodbye", "Later", "I'm leaving", "I'm out"],
+      "responses": ["Goodbye", "Cya later!", "Safe travels out there", "Take care"],
+      "context_set": ""
+    },
+    {
+      "tag": "creation",
+      "patterns": ["How was this created?", "How'd you make this chatbot"],
+      "responses": ["This chatbot was created using Natural Language Processing and the Deep Learning toolkit TensorFlow."],
+      "context_set": ""
+    },
+    {
+      "tag": "question_1",
+      "patterns": ["Tell me about yourself?", "Who are you?"],
+      "responses": ["My name is Brandon Anhorn. I'm a data enthusiast from Canada and I like to apply my analytical skills to develop products or find insights into solving complex business problems. Additionally, I have a degree from University of Calgary, where I majored in Economics, and bootcamp training in Data Science from General Assembly. As far as hobbies, I grew up playing baseball where I represented my province and nation, and absolutely love sports to this day."],
+      "context_set": ""
+    },
+    {
+      "tag": "question_2",
+      "patterns": ["Why do you want to work for this company", "What company would you want to work for", "Which industry excites you?"],
+      "responses": ["Every company can use analytics in 2020 and beyond, therefore I can see myself working in almost any sector."],
+      "context_set": ""
+    },
+    {
+      "tag": "question_3",
+      "patterns": ["What does your skillset look like", "What are your skills", "Do you have data analysis skills?", "What data science skills do you have?"],
+      "responses": ["The main tool I use is, Python. I use packages like Pandas, Scikit-learn, Numpy and so many more for analysis of large data sets, creating machine learning models, or AI projects, or doing statistical inference. I also have skills like scripting in SQL, knowledge of Amazon products, "],
+      "context_set": ""
+    },
+    {
+      "tag": "question_4",
+      "patterns": ["What are some other projects?", "What other work have you done?", "Tell me about some your projects", "Show me some of your work", "Talk about other work you have done?"],
+      "responses": ["First off, I think you should go to my GitHub page @ github.com/brandonanhorn. There you will find a wide away of projects. I have also created a few Flask apps you can to. http://pokemon-go-2870.herokuapp.com/ is a PokemonGo project / https://predictthetip.herokuapp.com/ is my first machine learning project - which I used to predict a waiters tip."],
+      "context_set": ""
+    },
+    {
+      "tag": "question_5",
+      "patterns": ["Tell something interesting about yourself?", "What is a a fun fact about you?", "Tell me a cool story", "Whats cool about you?", "Give me a fun fact"],
+      "responses": ["At 16 years old I was selected as a top 30 baseball player in Canada.", "I sold over $110,000 of BitCoin in 2017.", "I spent two years being a full time baby sitter for my nieces and nephews.", "I drove the google mapping car when I was 21 years old."],
+      "context_set": ""
+    }
+  ]
+}
