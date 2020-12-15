@@ -28,7 +28,6 @@ mapper = DataFrameMapper([
     (["education"], StandardScaler()),
     ("educationfield", LabelBinarizer()),
     ("gender", LabelBinarizer()),
-    ("jobrole", LabelBinarizer()),
     ("jobrole", LabelBinarizer())],df_out=True)
 
 Z_train = mapper.fit_transform(X_train)
