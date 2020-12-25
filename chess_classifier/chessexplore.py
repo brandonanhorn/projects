@@ -15,7 +15,7 @@ del df['moves']
 
 df = df.drop(df.columns[35:],axis=1)
 
-df.rename(columns={0:'firstplay',1:'secondplay',2:'thirdplay',3:'fourthplay',4:'fifthplay',5:'sixthplay',
+df = df.rename(columns={0:'firstplay',1:'secondplay',2:'thirdplay',3:'fourthplay',4:'fifthplay',5:'sixthplay',
                    6:'seventhplay',7:'eighthplay',8:'ninthplay',9:'tenthplay',10:'eleventhplay',11:'twelvthplay',
                    12:'thirteenthplay',13:'fourteenthplay',14:'fifteenthplay',15:'sixteenthplay',16:'seventeethplay',
                    17:'eigteenthplay',18:'nineteenthplay',19:'twentythplay'},inplace=True)
