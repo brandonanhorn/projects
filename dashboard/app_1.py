@@ -19,7 +19,14 @@ app.layout = html.Div(
         html.P(
             children="NFL stats from teamrankings.com",
         ),
+            dcc.Dropdown(
+            id = "team",
+            options = [{"label": i, "value": i} for i in df["team"].unique()],
+            value = "value"
+        ),
         dcc.Graph(
+            id="a_chart",
+            config={"displayModeBar": False},
             figure={
                 "data": [
                     {
@@ -31,21 +38,36 @@ app.layout = html.Div(
                 "layout": {"title": "NFL statistical visualization"},
             },
             ),
-            dcc.Dropdown(
-            id = "team",
-            options = [{"label": i, "value": i} for i in df["team"].unique()],
-            value = "value"
-        )
     ])
 
 @app.callback(
-    Output('data', 'figure'),
+    Output('a_chart', 'figure'),
     Input('team', 'value'),)
 
-def update_graph(i):
-    df = df[df["team"] == i]
-
-    return df
+def update_charts(i):
+    mask = ((df.team == i))
+    filtered_data = df.loc[mask, :]
+    data_figure = {
+        "data": [
+            {
+                "x": filtered_data["date"],
+                "y": filtered_data["rank_tdspergame"],
+                "type": "lines",
+                "hovertemplate": "ranked %{y:}<extra></extra>",
+            },
+        ],
+        "layout": {
+            "title": {
+                "text": "NFL team selected: " + str(i),
+                "x": 0.05,
+                "xanchor": "left",
+            },
+            "xaxis": {"fixedrange": True},
+            "yaxis": {"tickprefix": "ranking ", "fixedrange": True},
+            "colorway": ["#17B897"],
+        },
+    }
+    return data_figure
 
 if __name__ == "__main__":
     app.run_server(debug=True)
