@@ -24,6 +24,11 @@ app.layout = html.Div(
             options = [{"label": i, "value": i} for i in df["team"].unique()],
             value = "value"
         ),
+            dcc.Dropdown(
+            id = "cols",
+            options = [{"label": z, "value": z} for z in df.columns[2:]],
+            value = "value"
+        ),
         dcc.Graph(
             id="a_chart",
             config={"displayModeBar": False},
@@ -42,16 +47,18 @@ app.layout = html.Div(
 
 @app.callback(
     Output('a_chart', 'figure'),
-    Input('team', 'value'),)
+    Input('team', 'value'),
+    Input('cols', 'value'))
 
-def update_charts(i):
+def update_charts(i, z):
     mask = ((df.team == i))
+    y_val = z
     filtered_data = df.loc[mask, :]
     data_figure = {
         "data": [
             {
                 "x": filtered_data["date"],
-                "y": filtered_data["rank_tdspergame"],
+                "y": filtered_data[y_val],
                 "type": "lines",
                 "hovertemplate": "ranked %{y:}<extra></extra>",
             },
