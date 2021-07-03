@@ -10,6 +10,7 @@ df.head(1)
 del df["Unnamed: 0"]
 df["date"] = pd.to_datetime(df["date"], format="%Y-%m-%d")
 df.sort_values("date", inplace=True)
+df_start = df[df["team"] == "Arizona"]
 
 app = dash.Dash(__name__)
 
@@ -21,12 +22,12 @@ app.layout = html.Div(
         ),
             dcc.Dropdown(
             id = "team",
-            options = [{"label": i, "value": i} for i in df["team"].unique()],
+            options = [{"label": i, "value": i} for i in sorted(set(df["team"]))],
             value = "value"
         ),
             dcc.Dropdown(
             id = "cols",
-            options = [{"label": z, "value": z} for z in df.columns[2:]],
+            options = [{"label": z, "value": z} for z in sorted(set(df.columns[2:]))],
             value = "value"
         ),
         dcc.Graph(
@@ -35,8 +36,8 @@ app.layout = html.Div(
             figure={
                 "data": [
                     {
-                        "x": df["date"],
-                        "y": df["rank_tdspergame"],
+                        "x": df_start["date"],
+                        "y": df_start["opp_rank_1stdownspergame"],
                         "type": "lines",
                     },
                 ],
@@ -50,7 +51,7 @@ app.layout = html.Div(
     Input('team', 'value'),
     Input('cols', 'value'))
 
-def update_charts(i, z):
+def update_chart(i, z):
     mask = ((df.team == i))
     y_val = z
     filtered_data = df.loc[mask, :]
@@ -65,13 +66,13 @@ def update_charts(i, z):
         ],
         "layout": {
             "title": {
-                "text": "NFL team selected: " + str(i),
+                "text": "Team: " + str(i)  + "                             Column: " +str(z),
                 "x": 0.05,
                 "xanchor": "left",
             },
             "xaxis": {"fixedrange": True},
             "yaxis": {"tickprefix": "ranking ", "fixedrange": True},
-            "colorway": ["#17B897"],
+            "colorway": ["FF0000"],
         },
     }
     return data_figure
